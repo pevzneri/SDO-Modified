@@ -21,8 +21,7 @@ router.post('/newsletterAdd', function(req, res, next){
 		}
 		else{
 			console.log('entering new newsletter request into local db');
-			client.query('INSERT INTO salesforce.contacts(Firstname, Lastname, Email, Phone, MailingPostalCode) 
-				     values($1, $2, $3, $4, $5) returning id', 
+			client.query('INSERT INTO salesforce.contact (Firstname, Lastname, Email, Phone, MailingPostalCode) values($1, $2, $3, $4, $5) returning id', 
 				[req.body.fname, req.body.lname, req.body.email, req.body.phone, req.body.mailingpostalcode],
 				function(err, result){
 					if(err){console.error(err);res.send('error inserting into the table: ' + err + '<br/>');}
