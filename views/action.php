@@ -1,10 +1,9 @@
 
-print_r ($_Post['First_name'])
-
-'//Get request token for API
-
-MC_API = file_get_content (
+<?php
+print_r($_POST);
 
 
+$MC_API_Token = file_get_contents('https://auth.exacttargetapis.com/v1/requestToken');
 
 
+?>
